@@ -5,14 +5,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { Content } from 'ionic-angular';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
+  @ViewChild(Content) content: Content;
 
   rootPage: any = HomePage;
+  
 
   pages: Array<{title: string, component: any}>;
 
@@ -41,4 +44,11 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+
+  menuClosed() {
+    console.log("Menu closed on app.component");
+    this.content.scrollToTop();
+    console.log("Scrolled to top");
+  }
+  
 }
