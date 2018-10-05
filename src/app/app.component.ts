@@ -46,9 +46,20 @@ export class MyApp {
   }
 
   menuClosed() {
-    console.log("Menu closed on app.component");
-    this.content.scrollToTop();
-    console.log("Scrolled to top");
+    console.log("Menu closed");
+
+    // Enable the following line to repro the ionClose movie
+    
+    //this.content.scrollToTop();
+
+  }
+
+  menuOpened() {
+    console.log("Menu opened");
+
+    // Enable the following line to repro the ionOpen movie
+
+    //this.content.scrollToTop();
   }
   
 }
