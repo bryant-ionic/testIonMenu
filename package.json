@@ -39,8 +39,7 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.2.0",
-    "typescript": "~2.6.2",
-    "ios-deploy": "^1.9.3"
+    "typescript": "~2.6.2"
   },
   "description": "An Ionic project",
   "cordova": {
