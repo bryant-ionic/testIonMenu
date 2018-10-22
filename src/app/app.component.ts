@@ -7,6 +7,8 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { Content } from 'ionic-angular';
 
+import { MenuController } from 'ionic-angular';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -19,7 +21,10 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, 
+    public statusBar: StatusBar, 
+    public splashScreen: SplashScreen,
+    public menuCtrl: MenuController) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -45,21 +50,35 @@ export class MyApp {
     this.nav.setRoot(page.component);
   }
 
-  menuClosed() {
-    console.log("Menu closed");
+  // menuClosed() {
+  //   console.log("Menu closed");
 
-    // Enable the following line to repro the ionClose movie
+  //   // Enable the following line to repro the ionClose movie
     
-    //this.content.scrollToTop();
+  //   //this.content.scrollToTop();
 
-  }
+  // }
 
-  menuOpened() {
-    console.log("Menu opened");
+  // menuOpened() {
+  //   console.log("Menu opened");
 
-    // Enable the following line to repro the ionOpen movie
+  //   // Enable the following line to repro the ionOpen movie
 
-    //this.content.scrollToTop();
-  }
+  //   //this.content.scrollToTop();
+  // }
   
+  close() {
+
+    console.log("Closing menu...");
+
+    setTimeout(() => { 
+      console.log("Scrolling to top...");
+      this.content.scrollToTop(0); 
+      });
+
+    this.menuCtrl.close();
+
+    console.log("Menu closed");
+  }
+
 }
